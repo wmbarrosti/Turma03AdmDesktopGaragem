@@ -40,13 +40,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.txtCPF = new System.Windows.Forms.MaskedTextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtObs = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtComissao = new System.Windows.Forms.TextBox();
             this.chkStatus = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtNomePesquisa = new System.Windows.Forms.TextBox();
@@ -81,15 +81,15 @@
             // 
             this.groupBox1.Controls.Add(this.chkOffline);
             this.groupBox1.Controls.Add(this.chkStatus);
-            this.groupBox1.Controls.Add(this.maskedTextBox2);
-            this.groupBox1.Controls.Add(this.maskedTextBox1);
+            this.groupBox1.Controls.Add(this.txtCPF);
+            this.groupBox1.Controls.Add(this.txtTelefone);
             this.groupBox1.Controls.Add(this.btnExcluir);
             this.groupBox1.Controls.Add(this.btnAlterar);
             this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.btnCadastrar);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtComissao);
+            this.groupBox1.Controls.Add(this.txtObs);
+            this.groupBox1.Controls.Add(this.txtEmail);
             this.groupBox1.Controls.Add(this.txtNome);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label4);
@@ -192,30 +192,30 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "CPF";
             // 
-            // maskedTextBox1
+            // txtTelefone
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(284, 100);
-            this.maskedTextBox1.Mask = "(99) 00000-0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(188, 30);
-            this.maskedTextBox1.TabIndex = 6;
-            this.maskedTextBox1.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtTelefone.Location = new System.Drawing.Point(284, 100);
+            this.txtTelefone.Mask = "(99) 00000-0000";
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Size = new System.Drawing.Size(188, 30);
+            this.txtTelefone.TabIndex = 6;
+            this.txtTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
-            // maskedTextBox2
+            // txtCPF
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(552, 100);
-            this.maskedTextBox2.Mask = "000.000.000-00";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(188, 30);
-            this.maskedTextBox2.TabIndex = 6;
-            this.maskedTextBox2.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtCPF.Location = new System.Drawing.Point(552, 100);
+            this.txtCPF.Mask = "000.000.000-00";
+            this.txtCPF.Name = "txtCPF";
+            this.txtCPF.Size = new System.Drawing.Size(188, 30);
+            this.txtCPF.TabIndex = 6;
+            this.txtCPF.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
-            // textBox1
+            // txtEmail
             // 
-            this.textBox1.Location = new System.Drawing.Point(284, 153);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(489, 30);
-            this.textBox1.TabIndex = 1;
+            this.txtEmail.Location = new System.Drawing.Point(284, 153);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(489, 30);
+            this.txtEmail.TabIndex = 1;
             // 
             // label5
             // 
@@ -226,12 +226,12 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Observação";
             // 
-            // textBox2
+            // txtObs
             // 
-            this.textBox2.Location = new System.Drawing.Point(284, 208);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(489, 30);
-            this.textBox2.TabIndex = 1;
+            this.txtObs.Location = new System.Drawing.Point(284, 208);
+            this.txtObs.Name = "txtObs";
+            this.txtObs.Size = new System.Drawing.Size(489, 30);
+            this.txtObs.TabIndex = 1;
             // 
             // label6
             // 
@@ -242,12 +242,12 @@
             this.label6.TabIndex = 4;
             this.label6.Text = "Comissão";
             // 
-            // textBox3
+            // txtComissao
             // 
-            this.textBox3.Location = new System.Drawing.Point(284, 262);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(123, 30);
-            this.textBox3.TabIndex = 1;
+            this.txtComissao.Location = new System.Drawing.Point(284, 262);
+            this.txtComissao.Name = "txtComissao";
+            this.txtComissao.Size = new System.Drawing.Size(123, 30);
+            this.txtComissao.TabIndex = 1;
             // 
             // chkStatus
             // 
@@ -316,15 +316,15 @@
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.MaskedTextBox txtCPF;
+        private System.Windows.Forms.MaskedTextBox txtTelefone;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtComissao;
+        private System.Windows.Forms.TextBox txtObs;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox chkStatus;
         private System.Windows.Forms.TextBox txtNomePesquisa;
