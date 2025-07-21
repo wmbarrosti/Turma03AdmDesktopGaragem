@@ -58,6 +58,12 @@
     <Compile Include="frmGerenciarModelos.Designer.cs">
       <DependentUpon>frmGerenciarModelos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGerenciarVendedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGerenciarVendedores.Designer.cs">
+      <DependentUpon>frmGerenciarVendedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGerenciarModelos.resx">
       <DependentUpon>frmGerenciarModelos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGerenciarVendedores.resx">
+      <DependentUpon>frmGerenciarVendedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
