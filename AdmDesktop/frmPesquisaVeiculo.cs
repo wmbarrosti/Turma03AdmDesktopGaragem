@@ -9,21 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace AdmDesktopTurma005
+namespace AdmDesktop
 {
-    public partial class frmVeiculo : Form
+    public partial class frmPesquisaVeiculo : Form
     {
-        public frmVeiculo()
+        public frmPesquisaVeiculo()
         {
             InitializeComponent();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmVeiculo_Load(object sender, EventArgs e)
+        private void frmPesquisaVeiculo_Load(object sender, EventArgs e)
         {
 
         }
