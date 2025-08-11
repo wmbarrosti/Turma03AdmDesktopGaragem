@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Comum;
 
 
 namespace AdmDesktop
@@ -16,6 +17,7 @@ namespace AdmDesktop
         public frmConsultarVendasModelo()
         {
             InitializeComponent();
+            Util.ConfigurarBotoes(pesquisar: btnPesquisar);
         }
 
         private void frmConsultarVendasModelo_Load(object sender, EventArgs e)
@@ -25,7 +27,7 @@ namespace AdmDesktop
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-
+           
         }
     }
 }

@@ -18,12 +18,104 @@ namespace AdmDesktop
             InitializeComponent();
             Util.ConfigurarFormulario(form: this, titulo: Comum.Texto.TITULO_MARCA);
             Util.ConfigurarGrid(grdResultado);
-            Util.ConfigurarBotoesCRUD(btnCadastrar, btnAlterar, btnExcluir, btnCancelar);
+            Util.ConfigurarBotoes(cadastrar: btnCadastrar, 
+                alterar: btnAlterar, excluir: btnExcluir, cancelar: btnCancelar);
         }
 
+        #region Eventos
         private void frmGerenciarMarcas_Load(object sender, EventArgs e)
+        {
+            SetarEstadoNovo();
+        }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            if (ValidarCampos())
+            {
+                //continuo
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            SetarEstadoNovo();
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grdResultado_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        #endregion
+
+
+        #region Métodos
+        private void SetarEstadoNovo()
+        {
+            Util.ConfigurarEstadoTela(Util.EstadoTela.Novo,
+                cadastrar: btnCadastrar, alterar: btnAlterar, excluir: btnExcluir);
+            LimparCampos();
+        }
+        private void SetarEstadoEdicao()
+        {
+            Util.ConfigurarEstadoTela(Util.EstadoTela.Editar,
+               cadastrar: btnCadastrar, alterar: btnAlterar, excluir: btnExcluir);
+
+        }
+        private void LimparCampos()
+        {
+            txtNome.Clear();
+            txtNome.Focus();
+        }
+
+        private bool ValidarCampos()
+        {
+            bool flag = true;
+            string campos = Texto.TEXTO_MSG_CAMPO_OBG;
+
+            if (string.IsNullOrWhiteSpace(txtNome.Text))
+            {
+                campos +=  "- " + lblNome.Text;
+                flag = false;
+            }
+
+            if (!flag)
+                Util.ExibirMsg(Util.TipoMsg.Aviso, campos);
+       
+
+            return flag;
+        }
+
+
+        private void Cadastrar()
+        {
+
+        }
+        private void Alterar()
+        {
+
+        }
+        private void Consultar()
+        {
+
+        }
+        private void Cancelar()
+        {
+            SetarEstadoNovo();
+        }
+        private void Excluir()
+        {
+
+        }
+        #endregion
     }
 }

@@ -34,7 +34,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNome = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.grdResultado = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
@@ -49,7 +49,7 @@
             this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.btnCadastrar);
             this.groupBox1.Controls.Add(this.txtNome);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lblNome);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
@@ -68,6 +68,7 @@
             this.btnExcluir.TabIndex = 5;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -79,6 +80,7 @@
             this.btnAlterar.TabIndex = 4;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnCancelar
             // 
@@ -90,6 +92,7 @@
             this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnCadastrar
             // 
@@ -99,8 +102,9 @@
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(171, 62);
             this.btnCadastrar.TabIndex = 2;
-            this.btnCadastrar.Text = "sdfsfsdffsfd";
+            this.btnCadastrar.Text = "Salvar";
             this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // txtNome
             // 
@@ -109,14 +113,14 @@
             this.txtNome.Size = new System.Drawing.Size(489, 30);
             this.txtNome.TabIndex = 1;
             // 
-            // label1
+            // lblNome
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(90, 66);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Nome da marca";
+            this.lblNome.AutoSize = true;
+            this.lblNome.Location = new System.Drawing.Point(153, 64);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(67, 25);
+            this.lblNome.TabIndex = 4;
+            this.lblNome.Text = "Marca";
             // 
             // groupBox2
             // 
@@ -137,6 +141,7 @@
             this.grdResultado.Name = "grdResultado";
             this.grdResultado.Size = new System.Drawing.Size(839, 312);
             this.grdResultado.TabIndex = 0;
+            this.grdResultado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdResultado_CellClick);
             // 
             // frmGerenciarMarcas
             // 
@@ -165,7 +170,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.DataGridView grdResultado;
     }
 }

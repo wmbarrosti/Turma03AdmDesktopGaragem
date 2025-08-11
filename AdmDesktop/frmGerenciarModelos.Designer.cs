@@ -31,14 +31,14 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.grdResultado = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbMarca = new System.Windows.Forms.ComboBox();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbMarca = new System.Windows.Forms.ComboBox();
+            this.lblMarca = new System.Windows.Forms.Label();
+            this.lblModelo = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdResultado)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -63,6 +63,7 @@
             this.grdResultado.Name = "grdResultado";
             this.grdResultado.Size = new System.Drawing.Size(839, 312);
             this.grdResultado.TabIndex = 0;
+            this.grdResultado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdResultado_CellClick);
             // 
             // groupBox1
             // 
@@ -72,8 +73,8 @@
             this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.btnCadastrar);
             this.groupBox1.Controls.Add(this.txtNome);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lblMarca);
+            this.groupBox1.Controls.Add(this.lblModelo);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(16, 23);
             this.groupBox1.Name = "groupBox1";
@@ -81,6 +82,14 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gerenciar modelos";
+            // 
+            // cbMarca
+            // 
+            this.cbMarca.FormattingEnabled = true;
+            this.cbMarca.Location = new System.Drawing.Point(266, 48);
+            this.cbMarca.Name = "cbMarca";
+            this.cbMarca.Size = new System.Drawing.Size(478, 33);
+            this.cbMarca.TabIndex = 6;
             // 
             // btnExcluir
             // 
@@ -92,6 +101,7 @@
             this.btnExcluir.TabIndex = 5;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -103,6 +113,7 @@
             this.btnAlterar.TabIndex = 4;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnCancelar
             // 
@@ -114,6 +125,7 @@
             this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnCadastrar
             // 
@@ -125,6 +137,7 @@
             this.btnCadastrar.TabIndex = 2;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // txtNome
             // 
@@ -133,31 +146,23 @@
             this.txtNome.Size = new System.Drawing.Size(479, 30);
             this.txtNome.TabIndex = 1;
             // 
-            // label1
+            // lblMarca
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(99, 102);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Nome do modelo";
+            this.lblMarca.AutoSize = true;
+            this.lblMarca.Location = new System.Drawing.Point(85, 48);
+            this.lblMarca.Name = "lblMarca";
+            this.lblMarca.Size = new System.Drawing.Size(174, 25);
+            this.lblMarca.TabIndex = 4;
+            this.lblMarca.Text = "Selecione a marca";
             // 
-            // label2
+            // lblModelo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(85, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(174, 25);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Selecione a marca";
-            // 
-            // cbMarca
-            // 
-            this.cbMarca.FormattingEnabled = true;
-            this.cbMarca.Location = new System.Drawing.Point(266, 48);
-            this.cbMarca.Name = "cbMarca";
-            this.cbMarca.Size = new System.Drawing.Size(478, 33);
-            this.cbMarca.TabIndex = 6;
+            this.lblModelo.AutoSize = true;
+            this.lblModelo.Location = new System.Drawing.Point(99, 102);
+            this.lblModelo.Name = "lblModelo";
+            this.lblModelo.Size = new System.Drawing.Size(160, 25);
+            this.lblModelo.TabIndex = 4;
+            this.lblModelo.Text = "Nome do modelo";
             // 
             // frmGerenciarModelos
             // 
@@ -168,6 +173,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "frmGerenciarModelos";
             this.Text = "frmGerenciarModelos";
+            this.Load += new System.EventHandler(this.frmGerenciarModelos_Load);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdResultado)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -186,8 +192,8 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblModelo;
         private System.Windows.Forms.ComboBox cbMarca;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblMarca;
     }
 }
