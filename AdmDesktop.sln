@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdmDesktop", "AdmDesktop\Ad
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comum", "Comum\Comum.csproj", "{282FF988-7599-41EC-A581-76B6983A4A42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "DAO\DAO.csproj", "{35A3EE5D-AB48-4F4B-B539-E0630A1FC527}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{282FF988-7599-41EC-A581-76B6983A4A42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{282FF988-7599-41EC-A581-76B6983A4A42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{282FF988-7599-41EC-A581-76B6983A4A42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35A3EE5D-AB48-4F4B-B539-E0630A1FC527}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35A3EE5D-AB48-4F4B-B539-E0630A1FC527}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35A3EE5D-AB48-4F4B-B539-E0630A1FC527}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35A3EE5D-AB48-4F4B-B539-E0630A1FC527}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

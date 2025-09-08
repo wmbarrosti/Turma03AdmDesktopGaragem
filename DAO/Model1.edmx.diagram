@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="27d018a26809471f8490a4e5217ac830" Name="Diagram1">
+        <EntityTypeShape EntityType="db_garagem_03Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="db_garagem_03Model.tb_acesso" Width="1.5" PointX="8.25" PointY="11.25" />
+        <EntityTypeShape EntityType="db_garagem_03Model.tb_adicional" Width="1.5" PointX="3" PointY="4.75" />
+        <EntityTypeShape EntityType="db_garagem_03Model.tb_cliente" Width="1.5" PointX="5.25" PointY="14.5" />
+        <EntityTypeShape EntityType="db_garagem_03Model.tb_garagem" Width="1.5" PointX="0.75" PointY="7.625" />
+        <EntityTypeShape EntityType="db_garagem_03Model.tb_marca" Width="1.5" PointX="3" PointY="7.625" />
+        <EntityTypeShape EntityType="db_garagem_03Model.tb_modelo" Width="1.5" PointX="5.25" PointY="11.125" />
+        <EntityTypeShape EntityType="db_garagem_03Model.tb_veiculo" Width="1.5" PointX="5.25" PointY="5.875" />
+        <EntityTypeShape EntityType="db_garagem_03Model.tb_venda" Width="1.5" PointX="10.5" PointY="9.75" />
+        <EntityTypeShape EntityType="db_garagem_03Model.tb_vendedor" Width="1.5" PointX="3" PointY="14.25" />
+        <AssociationConnector Association="db_garagem_03Model.FK_tb_acesso_tb_garagem" />
+        <AssociationConnector Association="db_garagem_03Model.FK_tb_acesso_tb_vendedor" />
+        <AssociationConnector Association="db_garagem_03Model.FK_tb_adicional_tb_garagem" />
+        <AssociationConnector Association="db_garagem_03Model.FK_tb_cliente_tb_vendedor" />
+        <AssociationConnector Association="db_garagem_03Model.FK_tb_venda_tb_cliente" />
+        <AssociationConnector Association="db_garagem_03Model.FK_tb_marca_tb_garagem" />
+        <AssociationConnector Association="db_garagem_03Model.FK_tb_modelo_tb_garagem" />
+        <AssociationConnector Association="db_garagem_03Model.FK_tb_veiculo_tb_garagem" />
+        <AssociationConnector Association="db_garagem_03Model.FK_tb_venda_tb_garagem" />
+        <AssociationConnector Association="db_garagem_03Model.FK_tb_vendedor_tb_garagem" />
+        <AssociationConnector Association="db_garagem_03Model.FK_tb_modelo_tb_marca" />
+        <AssociationConnector Association="db_garagem_03Model.FK_tb_veiculo_tb_modelo" />
+        <AssociationConnector Association="db_garagem_03Model.FK_tb_venda_tb_veiculo" />
+        <AssociationConnector Association="db_garagem_03Model.FK_tb_venda_tb_vendedor" />
+        <AssociationConnector Association="db_garagem_03Model.tb_acessorio" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

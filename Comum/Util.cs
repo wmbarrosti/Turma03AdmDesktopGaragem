@@ -11,6 +11,11 @@ namespace Comum
 {
     public static class Util
     {
+
+
+        public static int CodigoGaragem = 1; //Fixo por eqto
+
+
         public enum TipoMsg
         {
             Ok,
@@ -42,10 +47,10 @@ namespace Comum
                     excluir.Enabled = false;
                     alterar.Enabled = false;
 
-                    ConfigurarEsteticaBotao(btn: alterar, corTexto: Color.White,
-                        corFundo: Color.Gray);
+                    ConfigurarEsteticaBotao(btn: alterar,  corTexto: Color.White,
+                        corFundo: Color.Gray, texto: Texto.TITULO_BOTAO_ALTERAR);
                     ConfigurarEsteticaBotao(btn: excluir, corTexto: Color.White,
-                       corFundo: Color.Gray);
+                       corFundo: Color.Gray, texto: Texto.TITULO_BOTAO_EXCLUIR);
                     break;
                 case EstadoTela.Editar:
                     cadastrar.Enabled = false;

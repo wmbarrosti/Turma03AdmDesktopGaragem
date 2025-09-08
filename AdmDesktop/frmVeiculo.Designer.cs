@@ -55,12 +55,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbMarca = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dtpDataEntrada = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dtpDataEntrada);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.btnPesquisar);
@@ -73,6 +76,7 @@
             this.groupBox1.Controls.Add(this.cbSituacao);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtVenda);
+            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtCompra);
             this.groupBox1.Controls.Add(this.label5);
@@ -331,6 +335,23 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Selecione a marca";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(616, 360);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(124, 25);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Data entrada";
+            // 
+            // dtpDataEntrada
+            // 
+            this.dtpDataEntrada.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataEntrada.Location = new System.Drawing.Point(765, 356);
+            this.dtpDataEntrada.Name = "dtpDataEntrada";
+            this.dtpDataEntrada.Size = new System.Drawing.Size(200, 30);
+            this.dtpDataEntrada.TabIndex = 31;
+            // 
             // frmVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,5 +398,7 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DateTimePicker dtpDataEntrada;
+        private System.Windows.Forms.Label label10;
     }
 }

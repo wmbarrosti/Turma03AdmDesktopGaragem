@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Comum;
-
+using DAO;
 namespace AdmDesktop
 {
     public partial class frmGerenciarMarcas : Form
@@ -18,7 +18,7 @@ namespace AdmDesktop
             InitializeComponent();
             Util.ConfigurarFormulario(form: this, titulo: Comum.Texto.TITULO_MARCA);
             Util.ConfigurarGrid(grdResultado);
-            Util.ConfigurarBotoes(cadastrar: btnCadastrar, 
+            Util.ConfigurarBotoes(cadastrar: btnCadastrar,
                 alterar: btnAlterar, excluir: btnExcluir, cancelar: btnCancelar);
         }
 
@@ -26,13 +26,24 @@ namespace AdmDesktop
         private void frmGerenciarMarcas_Load(object sender, EventArgs e)
         {
             SetarEstadoNovo();
+        
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             if (ValidarCampos())
             {
-                //continuo
+                try
+                {
+                    Cadastrar();
+                    Util.ExibirMsg(Util.TipoMsg.Ok);
+                    SetarEstadoNovo();
+                   
+                }
+                catch
+                {
+                    Util.ExibirMsg(Util.TipoMsg.Erro);
+                }
             }
         }
 
@@ -64,6 +75,7 @@ namespace AdmDesktop
             Util.ConfigurarEstadoTela(Util.EstadoTela.Novo,
                 cadastrar: btnCadastrar, alterar: btnAlterar, excluir: btnExcluir);
             LimparCampos();
+            Consultar();
         }
         private void SetarEstadoEdicao()
         {
@@ -84,13 +96,13 @@ namespace AdmDesktop
 
             if (string.IsNullOrWhiteSpace(txtNome.Text))
             {
-                campos +=  "- " + lblNome.Text;
+                campos += "- " + lblNome.Text;
                 flag = false;
             }
 
             if (!flag)
                 Util.ExibirMsg(Util.TipoMsg.Aviso, campos);
-       
+
 
             return flag;
         }
@@ -98,6 +110,16 @@ namespace AdmDesktop
 
         private void Cadastrar()
         {
+            //Cria o obj para pegar as informaçoes
+            tb_marca objMarca = new tb_marca();
+            //Cria o obj para chamar o METODO
+            MarcaDAO objDAO = new MarcaDAO();
+
+            objMarca.nome_marca = txtNome.Text;
+            objMarca.garagem_id = Util.CodigoGaragem;
+
+
+            objDAO.CadastrarMarca(objMarca);
 
         }
         private void Alterar()
@@ -106,6 +128,21 @@ namespace AdmDesktop
         }
         private void Consultar()
         {
+            //Cria o obj para chamar o METODO
+            MarcaDAO objDAO = new MarcaDAO();
+
+            List<tb_marca> lstRetorno = objDAO.ConsultarMarca(Util.CodigoGaragem);
+
+
+            grdResultado.DataSource = lstRetorno;
+
+            grdResultado.Columns["id_marcar"].Visible = false;
+            grdResultado.Columns["garagem_id"].Visible = false;
+            grdResultado.Columns["tb_garagem"].Visible = false;
+            grdResultado.Columns["tb_modelo"].Visible = false;
+
+            grdResultado.Columns["nome_marca"].HeaderText = "Marca";
+
 
         }
         private void Cancelar()
