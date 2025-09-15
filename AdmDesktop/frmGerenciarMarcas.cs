@@ -13,6 +13,8 @@ namespace AdmDesktop
 {
     public partial class frmGerenciarMarcas : Form
     {
+        int codigoRegistro = 0;
+        string nomeEdicao = string.Empty;
         public frmGerenciarMarcas()
         {
             InitializeComponent();
@@ -54,17 +56,55 @@ namespace AdmDesktop
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
+            if (ValidarCampos())
+            {
+                try
+                {
+                    Alterar();
+                    Util.ExibirMsg(Util.TipoMsg.Ok);
+                    SetarEstadoNovo();
 
+                }
+                catch
+                {
+                    Util.ExibirMsg(Util.TipoMsg.Erro);
+                }
+            }
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            if(Util.ExibirMsg(Util.TipoMsg.ConfirmacaoExcluir, nomeEdicao))
+            {
+                try
+                {
+                    Excluir();
+                    Util.ExibirMsg(Util.TipoMsg.Ok);
+                    SetarEstadoNovo();
 
+                }
+                catch
+                {
+                    Util.ExibirMsg(Util.TipoMsg.Erro);
+                }
+            }
         }
 
         private void grdResultado_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if(grdResultado.RowCount > 0)
+            {
+                //Recuperar a informação da linha sel.
+                tb_marca objLinhaClicada =(tb_marca) grdResultado.CurrentRow.DataBoundItem;
 
+                //popular os campos para edição
+                codigoRegistro = objLinhaClicada.id_marcar;
+                nomeEdicao = objLinhaClicada.nome_marca;
+
+                txtNome.Text = objLinhaClicada.nome_marca;
+
+                SetarEstadoEdicao();
+            }
         }
         #endregion
 
@@ -85,6 +125,8 @@ namespace AdmDesktop
         }
         private void LimparCampos()
         {
+            codigoRegistro = 0;
+            nomeEdicao = string.Empty;
             txtNome.Clear();
             txtNome.Focus();
         }
@@ -124,7 +166,16 @@ namespace AdmDesktop
         }
         private void Alterar()
         {
+            //Cria o obj para pegar as informaçoes
+            tb_marca objMarca = new tb_marca();
+            //Cria o obj para chamar o METODO
+            MarcaDAO objDAO = new MarcaDAO();
 
+            objMarca.nome_marca = txtNome.Text;
+            objMarca.id_marcar = codigoRegistro;
+
+
+            objDAO.AlterarMarca(objMarca);
         }
         private void Consultar()
         {
@@ -151,6 +202,8 @@ namespace AdmDesktop
         }
         private void Excluir()
         {
+            MarcaDAO objDAO = new MarcaDAO();
+            objDAO.ExcluirMarca(codigoRegistro);
 
         }
         #endregion

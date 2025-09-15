@@ -32,6 +32,7 @@ namespace Comum
         #region TEXTO  MSG
         public static string TEXTO_MSG_OK = "Ação realizada com sucesso";
         public static string TEXTO_MSG_ERRO = "Ocorreu um erro na operação! Tente mais tarde!";
+        public static string TEXTO_MSG_EXCLUIR = "Deseja excluir o registro: ";
         /// <summary>
         /// Corrigir o(s) campo(s) abaixo
         /// </summary>

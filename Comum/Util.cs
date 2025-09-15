@@ -30,6 +30,18 @@ namespace Comum
             Editar
         }
 
+        public static void ConfigurarCombo(ComboBox cmb, string display="", string value="")
+        {
+            cmb.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            if (!string.IsNullOrWhiteSpace(display) && !string.IsNullOrWhiteSpace(value))
+            {
+                cmb.DisplayMember = display;
+                cmb.ValueMember = value;
+            }
+
+
+        }
       
         /// <summary>
         /// Gerencia estado dos buttons CRUD
@@ -79,7 +91,7 @@ namespace Comum
                     break;
                 case TipoMsg.ConfirmacaoExcluir:
 
-                    if(MessageBox.Show(mensagem, Texto.TITULO_MSG_CONFIRMAR_EXCLUSAO,
+                    if(MessageBox.Show(Texto.TEXTO_MSG_EXCLUIR + mensagem, Texto.TITULO_MSG_CONFIRMAR_EXCLUSAO,
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                     {
                         flag = false;
