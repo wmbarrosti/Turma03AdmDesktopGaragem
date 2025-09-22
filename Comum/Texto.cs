@@ -9,7 +9,8 @@ namespace Comum
     public static class Texto
     {
         #region TÍTULO DOS FORMULÁRIOS
-        public static string TITULO_MARCA = "Gerenciar marca";
+        public static string TITULO_MARCA = "Gerenciar marca"; 
+        public static string TITULO_VENDEDOR = "Gerenciar vendedor";
         public static string TITULO_CONSULTAR_VENDAS_VENDEDOR = "Consultar vendas por vendedor";
         #endregion
 
@@ -33,6 +34,7 @@ namespace Comum
         public static string TEXTO_MSG_OK = "Ação realizada com sucesso";
         public static string TEXTO_MSG_ERRO = "Ocorreu um erro na operação! Tente mais tarde!";
         public static string TEXTO_MSG_EXCLUIR = "Deseja excluir o registro: ";
+        public static string TEXTO_MSG_CPF = "CPF inválido!";
         /// <summary>
         /// Corrigir o(s) campo(s) abaixo
         /// </summary>

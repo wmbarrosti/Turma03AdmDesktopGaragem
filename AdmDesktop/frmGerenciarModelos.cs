@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Comum;
 using DAO;
+using DAO.VO;
 
 namespace AdmDesktop
 {
@@ -97,14 +98,14 @@ namespace AdmDesktop
         {
             if(grdResultado.RowCount > 0)
             {
-                tb_modelo objLinha = (tb_modelo)grdResultado.CurrentRow.DataBoundItem;
+                ModeloVO objLinha = (ModeloVO)grdResultado.CurrentRow.DataBoundItem;
 
 
-                txtNome.Text = objLinha.nome_modelo;
-                cbMarca.SelectedValue = objLinha.marca_id;
+                txtNome.Text = objLinha.ObjModelo.nome_modelo;
+                cbMarca.SelectedValue = objLinha.ObjModelo.marca_id;
 
-                codigoRegistro = objLinha.id_modelo;
-                nomeEdicao = objLinha.nome_modelo;
+                codigoRegistro = objLinha.ObjModelo.id_modelo;
+                nomeEdicao = objLinha.ObjModelo.nome_modelo;
 
                 SetarEstadoEdicao();
 
@@ -187,7 +188,7 @@ namespace AdmDesktop
         private void Consultar()
         {
             grdResultado.DataSource = new ModeloDAO().Consultar(Util.CodigoGaragem);
-
+            grdResultado.Columns["ObjModelo"].Visible = false;
         }
         private void Cancelar()
         {

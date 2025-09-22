@@ -29,7 +29,7 @@ namespace DAO
             db_garagem objbanco = new db_garagem();
 
             //2 PASSO - Crie uma variável que RECEBA a consulta
-            List<tb_marca> lstConsulta = objbanco.tb_marca
+            List<tb_marca> lstConsulta = objbanco.tb_marca.AsNoTracking()
                                         .Where(m => m.garagem_id == codigoGaragem).ToList();
 
             return lstConsulta;

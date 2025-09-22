@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAO.VO;
 
 namespace DAO
 {
@@ -40,11 +41,30 @@ namespace DAO
 
         }
 
-        public List<tb_modelo> Consultar(int codigoGaragem)
+        public List<ModeloVO> Consultar(int codigoGaragem)
         {
-            List<tb_modelo> lstConsulta = objbanco.tb_modelo.Where(m => m.garagem_id == codigoGaragem).ToList();
+            List<ModeloVO> lstResultado = new List<ModeloVO>();
+            List<tb_modelo> lstConsulta = objbanco.tb_modelo
+                                        .Include("tb_marca")
+                                        .AsNoTracking()
+                                        .Where(m => m.garagem_id == codigoGaragem).ToList();
 
-            return lstConsulta;
+
+
+            foreach(var item in lstConsulta)
+            {
+                ModeloVO objVoDaVez = new ModeloVO();
+
+                objVoDaVez.ObjModelo = item;
+                objVoDaVez.Modelo = item.nome_modelo;
+                objVoDaVez.Marca = item.tb_marca.nome_marca;
+
+                lstResultado.Add(objVoDaVez);
+            }
+
+
+
+            return lstResultado;
         }
 
         public List<tb_modelo> ConsultarModelos(int codigoGaragem) 
