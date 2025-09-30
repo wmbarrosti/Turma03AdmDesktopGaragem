@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="27d018a26809471f8490a4e5217ac830" Name="Diagram1">
+      <Diagram DiagramId="27d018a26809471f8490a4e5217ac830" Name="Diagram1" ZoomLevel="226">
         <EntityTypeShape EntityType="db_garagem_03Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="db_garagem_03Model.tb_acesso" Width="1.5" PointX="8.25" PointY="11.25" />
         <EntityTypeShape EntityType="db_garagem_03Model.tb_adicional" Width="1.5" PointX="3" PointY="4.75" />
@@ -14,7 +14,7 @@
         <EntityTypeShape EntityType="db_garagem_03Model.tb_modelo" Width="1.5" PointX="5.25" PointY="11.125" />
         <EntityTypeShape EntityType="db_garagem_03Model.tb_veiculo" Width="1.5" PointX="5.25" PointY="5.875" />
         <EntityTypeShape EntityType="db_garagem_03Model.tb_venda" Width="1.5" PointX="10.5" PointY="9.75" />
-        <EntityTypeShape EntityType="db_garagem_03Model.tb_vendedor" Width="1.5" PointX="3" PointY="14.25" />
+        <EntityTypeShape EntityType="db_garagem_03Model.tb_vendedor" Width="1.5" PointX="2.75" PointY="14.5" />
         <AssociationConnector Association="db_garagem_03Model.FK_tb_acesso_tb_garagem" />
         <AssociationConnector Association="db_garagem_03Model.FK_tb_acesso_tb_vendedor" />
         <AssociationConnector Association="db_garagem_03Model.FK_tb_adicional_tb_garagem" />

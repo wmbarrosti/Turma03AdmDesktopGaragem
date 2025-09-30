@@ -22,7 +22,9 @@ namespace Comum
             Erro,
             Aviso,
             ConfirmacaoExcluir,
-            CpfInvalido
+            CpfInvalido,
+            TemCliente,
+            TemVenda
         }
 
         public enum EstadoTela
@@ -102,6 +104,12 @@ namespace Comum
                     }
 
                     break;
+                case TipoMsg.TemCliente:
+                    MessageBox.Show(Texto.TEXTO_MSG_TEM_CLIENTES, Texto.TITULO_MSG_AVISO, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    break;
+                case TipoMsg.TemVenda:
+                    MessageBox.Show(Texto.TEXTO_MSG_TEM_VENDAS, Texto.TITULO_MSG_AVISO, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    break;
             }
 
 
@@ -152,45 +160,41 @@ namespace Comum
             form.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        public static void ConfigurarGrid(DataGridView grid)
+        public static void ConfigurarGrid(DataGridView grid, bool multiSelect = false)
         {
             grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             grid.ReadOnly = true;
-            grid.MultiSelect = false;
+            grid.MultiSelect = multiSelect;
         }
 
         public static bool ValidarCPF(string cpf)
         {
             int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
-            string tempCpf;
-            string digito;
-            int soma;
-            int resto;
 
-            cpf = cpf.Trim();
-            cpf = cpf.Replace(".", "").Replace("-", "");
-
+            cpf = cpf.Trim().Replace(".", "").Replace("-", "");
             if (cpf.Length != 11)
                 return false;
 
-            tempCpf = cpf.Substring(0, 9);
-            soma = 0;
+            for (int j = 0; j < 10; j++)
+                if (j.ToString().PadLeft(11, char.Parse(j.ToString())) == cpf)
+                    return false;
+
+            string tempCpf = cpf.Substring(0, 9);
+            int soma = 0;
 
             for (int i = 0; i < 9; i++)
                 soma += int.Parse(tempCpf[i].ToString()) * multiplicador1[i];
 
-            resto = soma % 11;
+            int resto = soma % 11;
             if (resto < 2)
                 resto = 0;
             else
                 resto = 11 - resto;
 
-            digito = resto.ToString();
-
+            string digito = resto.ToString();
             tempCpf = tempCpf + digito;
-
             soma = 0;
             for (int i = 0; i < 10; i++)
                 soma += int.Parse(tempCpf[i].ToString()) * multiplicador2[i];

@@ -35,6 +35,8 @@ namespace Comum
         public static string TEXTO_MSG_ERRO = "Ocorreu um erro na operação! Tente mais tarde!";
         public static string TEXTO_MSG_EXCLUIR = "Deseja excluir o registro: ";
         public static string TEXTO_MSG_CPF = "CPF inválido!";
+        public static string TEXTO_MSG_TEM_CLIENTES = "O vendedor não pode ser excluído pois o mesmo já tem clientes cadastrados";
+        public static string TEXTO_MSG_TEM_VENDAS = "O vendedor não pode ser excluído pois o mesmo já tem vendas";
         /// <summary>
         /// Corrigir o(s) campo(s) abaixo
         /// </summary>

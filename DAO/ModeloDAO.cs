@@ -67,8 +67,9 @@ namespace DAO
             return lstResultado;
         }
 
-        public List<tb_modelo> ConsultarModelos(int codigoGaragem) 
-            => objbanco.tb_modelo.Where(m => m.garagem_id == codigoGaragem).ToList();
+        public List<tb_modelo> ConsultarModelos(int codigoGaragem, int codMarca) 
+            => objbanco.tb_modelo.AsNoTracking(). Where(m => m.garagem_id == codigoGaragem
+            && m.marca_id == codMarca).ToList();
 
 
     }

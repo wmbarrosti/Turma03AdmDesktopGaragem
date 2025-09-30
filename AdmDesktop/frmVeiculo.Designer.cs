@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpDataEntrada = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
@@ -36,14 +37,13 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.chkAutomatico = new System.Windows.Forms.CheckBox();
-            this.chkAr = new System.Windows.Forms.CheckBox();
-            this.chkTeto = new System.Windows.Forms.CheckBox();
+            this.grdAdicionais = new System.Windows.Forms.DataGridView();
             this.txtObs = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cbSituacao = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtVenda = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtCompra = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -55,10 +55,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbMarca = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.dtpDataEntrada = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdAdicionais)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -87,15 +87,23 @@
             this.groupBox1.Controls.Add(this.cbModelo);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cbMarca);
+            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(28, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1039, 509);
+            this.groupBox1.Size = new System.Drawing.Size(1199, 591);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gerenciar veículo";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // dtpDataEntrada
+            // 
+            this.dtpDataEntrada.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataEntrada.Location = new System.Drawing.Point(213, 397);
+            this.dtpDataEntrada.Name = "dtpDataEntrada";
+            this.dtpDataEntrada.Size = new System.Drawing.Size(200, 30);
+            this.dtpDataEntrada.TabIndex = 31;
             // 
             // label9
             // 
@@ -118,7 +126,7 @@
             // 
             this.btnPesquisar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnPesquisar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPesquisar.Location = new System.Drawing.Point(715, 428);
+            this.btnPesquisar.Location = new System.Drawing.Point(768, 502);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(153, 50);
             this.btnPesquisar.TabIndex = 28;
@@ -129,7 +137,7 @@
             // 
             this.btnAlterar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnAlterar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAlterar.Location = new System.Drawing.Point(556, 428);
+            this.btnAlterar.Location = new System.Drawing.Point(609, 502);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(153, 50);
             this.btnAlterar.TabIndex = 27;
@@ -140,7 +148,7 @@
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCancelar.Location = new System.Drawing.Point(397, 428);
+            this.btnCancelar.Location = new System.Drawing.Point(450, 502);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(153, 50);
             this.btnCancelar.TabIndex = 26;
@@ -151,7 +159,7 @@
             // 
             this.btnSalvar.BackColor = System.Drawing.Color.Green;
             this.btnSalvar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSalvar.Location = new System.Drawing.Point(238, 428);
+            this.btnSalvar.Location = new System.Drawing.Point(291, 502);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(153, 50);
             this.btnSalvar.TabIndex = 25;
@@ -160,45 +168,22 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.chkAutomatico);
-            this.groupBox2.Controls.Add(this.chkAr);
-            this.groupBox2.Controls.Add(this.chkTeto);
+            this.groupBox2.Controls.Add(this.grdAdicionais);
             this.groupBox2.Location = new System.Drawing.Point(621, 199);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(373, 141);
+            this.groupBox2.Size = new System.Drawing.Size(555, 141);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Adicionais";
             // 
-            // chkAutomatico
+            // grdAdicionais
             // 
-            this.chkAutomatico.AutoSize = true;
-            this.chkAutomatico.Location = new System.Drawing.Point(207, 56);
-            this.chkAutomatico.Name = "chkAutomatico";
-            this.chkAutomatico.Size = new System.Drawing.Size(129, 29);
-            this.chkAutomatico.TabIndex = 2;
-            this.chkAutomatico.Text = "Automático";
-            this.chkAutomatico.UseVisualStyleBackColor = true;
-            // 
-            // chkAr
-            // 
-            this.chkAr.AutoSize = true;
-            this.chkAr.Location = new System.Drawing.Point(126, 56);
-            this.chkAr.Name = "chkAr";
-            this.chkAr.Size = new System.Drawing.Size(51, 29);
-            this.chkAr.TabIndex = 1;
-            this.chkAr.Text = "Ar";
-            this.chkAr.UseVisualStyleBackColor = true;
-            // 
-            // chkTeto
-            // 
-            this.chkTeto.AutoSize = true;
-            this.chkTeto.Location = new System.Drawing.Point(34, 56);
-            this.chkTeto.Name = "chkTeto";
-            this.chkTeto.Size = new System.Drawing.Size(71, 29);
-            this.chkTeto.TabIndex = 0;
-            this.chkTeto.Text = "Teto";
-            this.chkTeto.UseVisualStyleBackColor = true;
+            this.grdAdicionais.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdAdicionais.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdAdicionais.Location = new System.Drawing.Point(3, 26);
+            this.grdAdicionais.Name = "grdAdicionais";
+            this.grdAdicionais.Size = new System.Drawing.Size(549, 112);
+            this.grdAdicionais.TabIndex = 0;
             // 
             // txtObs
             // 
@@ -243,6 +228,15 @@
             this.txtVenda.Name = "txtVenda";
             this.txtVenda.Size = new System.Drawing.Size(154, 30);
             this.txtVenda.TabIndex = 19;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(64, 401);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(124, 25);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Data entrada";
             // 
             // label6
             // 
@@ -325,6 +319,7 @@
             this.cbMarca.Name = "cbMarca";
             this.cbMarca.Size = new System.Drawing.Size(255, 33);
             this.cbMarca.TabIndex = 9;
+            this.cbMarca.SelectedIndexChanged += new System.EventHandler(this.cbMarca_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -335,28 +330,22 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Selecione a marca";
             // 
-            // label10
+            // label11
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(616, 360);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(124, 25);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "Data entrada";
-            // 
-            // dtpDataEntrada
-            // 
-            this.dtpDataEntrada.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataEntrada.Location = new System.Drawing.Point(765, 356);
-            this.dtpDataEntrada.Name = "dtpDataEntrada";
-            this.dtpDataEntrada.Size = new System.Drawing.Size(200, 30);
-            this.dtpDataEntrada.TabIndex = 31;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Blue;
+            this.label11.Location = new System.Drawing.Point(629, 353);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(516, 20);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Para selecionar mais de uma opção, pressione o CTRL + o click";
             // 
             // frmVeiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1087, 564);
+            this.ClientSize = new System.Drawing.Size(1269, 653);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmVeiculo";
             this.Text = "frmVeiculo";
@@ -364,7 +353,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdAdicionais)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -389,9 +378,6 @@
         private System.Windows.Forms.TextBox txtCompra;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox chkAutomatico;
-        private System.Windows.Forms.CheckBox chkAr;
-        private System.Windows.Forms.CheckBox chkTeto;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnCancelar;
@@ -400,5 +386,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DateTimePicker dtpDataEntrada;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridView grdAdicionais;
+        private System.Windows.Forms.Label label11;
     }
 }

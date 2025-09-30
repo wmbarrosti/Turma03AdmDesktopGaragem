@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
+using DAO.VO;
 
 namespace DAO
 {
@@ -12,7 +13,47 @@ namespace DAO
 
         db_garagem objbanco = new db_garagem();
 
-        public void CadastrarVendedor( tb_vendedor objVendedor)
+        public bool VerificarTemClientes(int codVendedor)
+        {
+            bool ret = objbanco.tb_cliente.AsNoTracking().Any(c => c.vendedor_id == codVendedor);
+            return ret;
+        }
+        public bool VerificarTemVendas(int codVendedor)
+         => objbanco.tb_venda.AsNoTracking().Any(v => v.vendedor_id == codVendedor);
+
+
+
+        public List<VendedorVO> FiltrarVendedor(string nomeFiltro, int codGaragem)
+        {
+            List<VendedorVO> lstRetorno = new List<VendedorVO>();
+
+            List<tb_vendedor> lstConsultar = objbanco.tb_vendedor.Include("tb_acesso")
+                                .AsNoTracking()
+                                .Where(v => v.garagem_id == codGaragem
+                                && v.nome_vendedor.Contains(nomeFiltro)).ToList();
+
+            foreach (var item in lstConsultar)
+            {
+                VendedorVO vo = new VendedorVO();
+
+                vo.Nome = item.nome_vendedor;
+                vo.Email = item.email_vendedor;
+                vo.Telefone = item.telefone_vendedor;
+                vo.Comissao = item.comissao_vendedor.ToString();
+                vo.Status = item.tb_acesso.FirstOrDefault().status_acesso == 1 ? "Ativo" : "Inativo";
+                vo.ObjVendedor = item;
+
+
+                lstRetorno.Add(vo);
+
+            }
+
+
+            return lstRetorno;
+        }
+
+
+        public void CadastrarVendedor(tb_vendedor objVendedor)
         {
 
             using (TransactionScope tran = new TransactionScope())
@@ -73,5 +114,16 @@ namespace DAO
 
         }
 
+
+        public void ExcluirVendedor(int codVendedor)
+        {
+
+            tb_vendedor objExcluirVendedor = objbanco.tb_vendedor
+                                            .Where(v => v.id_vendedor == codVendedor).FirstOrDefault();
+            objbanco.tb_vendedor.Remove(objExcluirVendedor);
+            objbanco.SaveChanges();
+
+
+        }
     }
 }
